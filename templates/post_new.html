@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="d-flex justify-content-center bg-light m-2 p-3 border border-success">
+    <form action="" method="post" enctype="multipart/form.data">{% csrf_token %}
+        {{form.as_p}}
+        
+        <input class="btn btn-primary" type="submit" value="save"/>
+    </form>
+</div>
+{% endblock content %}

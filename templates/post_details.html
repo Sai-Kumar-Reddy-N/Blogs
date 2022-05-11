@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>blogs app</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+</head>
+<body>            
+{% block content %}
+<div class=' text-center bg-light p-2 border border-warning m-2 '>
+    <div>
+        <h2><u>{{object.title}}</u></h2>    
+        <img src="{{object.img}}" alt="oh..! No.">
+        <p>{{object.body}}</p>
+        <p>By-{{object.author}}</p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{% url 'post_edit' post.pk %}"><button class="btn btn-primary">Edit</button></a>
+        <a href="{% url 'BlogView' %}"><button class="btn btn-success">Back</button></a>
+        <a href="{% url 'post_delete' post.pk %}"><button class="btn btn-danger">Delete</button></a>
+    </div>
+</div>
+    {% endblock content %}
+ 
+</body>
+</html>

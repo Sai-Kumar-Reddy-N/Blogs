@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method = "post" class="d-flex justify-content-center"> {% csrf_token %}
+        <div>
+            <p class="text-danger fw-bold">Are you sure to delete '{{post.title}}'</p>
+        <div class="ml-4">
+            <input class="btn btn-danger" type ="submit" Value="Delete"/>
+            <a href="{% url 'post_details' post.pk %}"><button class="btn btn-success">Cancel</button></a>
+        </div>
+        </div>
+    </form>
+{% endblock content %}
